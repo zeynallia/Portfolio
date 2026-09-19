@@ -1,3 +1,9 @@
+# IDE & System files
 .idea/
 .vscode/
+*.iml
 .DS_Store
+Thumbs.db
+
+# Windows / PowerShell temporary files
+*.tmp
