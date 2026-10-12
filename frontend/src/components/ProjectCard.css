@@ -1,0 +1,74 @@
+.project-card {
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-card-header h3 {
+    margin: 0;
+    color: #24292e;
+}
+
+.project-description {
+    color: #586069;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.featured-badge {
+    background-color: #ffd33d;
+    color: #24292e;
+}
+
+.tech-badge {
+    background-color: #f1f8ff;
+    color: #0366d6;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.btn-outline {
+    border: 1px solid #e1e4e8;
+    color: #24292e;
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+}
