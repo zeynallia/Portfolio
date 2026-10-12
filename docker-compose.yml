@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # 1. The Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: portfolio-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: portfoliodb
+      POSTGRES_USER: portfolio_user
+      POSTGRES_PASSWORD: portfolio_secret
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - portfolio-network
+
+  # 2. The Spring Boot Backend
+  backend:
+    image: portfolio-backend:v1
+    container_name: portfolio-backend
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/portfoliodb
+    networks:
+      - portfolio-network
+
+  # 3. The React + Nginx Frontend
+  frontend:
+    image: portfolio-frontend:v1
+    container_name: portfolio-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: portfolio_pgdata
+    external: true

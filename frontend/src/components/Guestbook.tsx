@@ -10,7 +10,7 @@ export const Guestbook: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/guestbook')
+        fetch('/api/guestbook')
             .then(res => res.json())
             .then(data => setEntries(data))
             .catch(err => console.error("Error fetching guestbook:", err));
@@ -22,7 +22,7 @@ export const Guestbook: React.FC = () => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:8080/api/guestbook', {
+            const response = await fetch('/api/guestbook', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({name, message})

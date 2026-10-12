@@ -8,7 +8,7 @@ export const ProjectList: React.FC = () => {
     const[error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/projects')
+        fetch('/api/projects')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch projects');
                 return response.json();
