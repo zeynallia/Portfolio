@@ -6,6 +6,8 @@ services:
     image: postgres:16-alpine
     container_name: portfolio-postgres
     restart: unless-stopped
+    ports:
+      - "5433:5432"
     environment:
       POSTGRES_DB: portfoliodb
       POSTGRES_USER: portfolio_user
@@ -17,6 +19,7 @@ services:
 
   # 2. The Spring Boot Backend
   backend:
+    build: ./backend
     image: portfolio-backend:v1
     container_name: portfolio-backend
     restart: unless-stopped
@@ -29,6 +32,7 @@ services:
 
   # 3. The React + Nginx Frontend
   frontend:
+    build: ./frontend
     image: portfolio-frontend:v1
     container_name: portfolio-frontend
     restart: unless-stopped

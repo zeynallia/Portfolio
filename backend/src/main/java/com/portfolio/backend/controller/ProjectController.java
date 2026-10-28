@@ -2,6 +2,7 @@ package com.portfolio.backend.controller;
 
 import com.portfolio.backend.model.Project;
 import com.portfolio.backend.repository.ProjectRepository;
+import com.portfolio.backend.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +13,20 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 public class ProjectController {
-    private final ProjectRepository projectRepository;
+    private final ProjectService projectService;
 
     @GetMapping
     public List<Project> getAllProjects() {
-        return projectRepository.findAll();
+        return projectService.getAllProjects();
     }
 
     @GetMapping("/featured")
     public List<Project> getFeaturedProjects() {
-        return projectRepository.findByFeaturedTrue();
+        return projectService.getFeaturedProjects();
     }
 
     @PostMapping
     public Project createProject(@RequestBody Project project) {
-        return projectRepository.save(project);
+        return projectService.createProject(project);
     }
 }

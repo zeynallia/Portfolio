@@ -1,27 +1,32 @@
 package com.portfolio.backend.controller;
 
+import com.portfolio.backend.dto.GuestbookRequest;
 import com.portfolio.backend.model.GuestbookEntry;
-import com.portfolio.backend.repository.GuestbookEntryRepository;
+import com.portfolio.backend.service.GuestbookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("api/guestbook")
+@RequestMapping("/api/guestbook")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 public class GuestBookController {
-    private final GuestbookEntryRepository repository;
+    private final GuestbookService guestbookService;
 
     @GetMapping
-    public Iterable<GuestbookEntry> getEntries() {
-        return repository.findAllByOrderByCreatedAtDesc();
+    public List<GuestbookEntry> getEntries()
+    {
+        return guestbookService.getAllEntries();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GuestbookEntry addEntry(@Valid @RequestBody GuestbookEntry entry) {
-        return repository.save(entry);
+    public GuestbookEntry addEntry(@Valid @RequestBody GuestbookRequest request)
+    {
+        return guestbookService.createEntry(request);
     }
 }
