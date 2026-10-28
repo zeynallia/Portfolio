@@ -16,6 +16,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - portfolio-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio_user -d portfoliodb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   # 2. The Spring Boot Backend
   backend:
@@ -24,9 +29,12 @@ services:
     container_name: portfolio-backend
     restart: unless-stopped
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/portfoliodb
+      SPRING_DATASOURCE_USERNAME: portfolio_user
+      SPRING_DATASOURCE_PASSWORD: portfolio_secret
     networks:
       - portfolio-network
 
@@ -49,5 +57,4 @@ networks:
 
 volumes:
   postgres_data:
-    name: portfolio_pgdata
-    external: true
+    driver: local
