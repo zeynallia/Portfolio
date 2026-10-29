@@ -2,13 +2,14 @@ import './App.css'
 import {ProjectList} from "./components/ProjectList.tsx";
 import {Guestbook} from "./components/Guestbook.tsx";
 import {About} from "./components/About.tsx";
+import {Terminal} from "./components/Terminal.tsx"; // ADD THIS
 import {useState} from "react";
 
 function App() {
-    const [activeTab, setActiveTab] = useState<'about' | 'portfolio' | 'guestbook'>('about');
+    const [activeTab, setActiveTab] = useState<'about' | 'portfolio' | 'guestbook' | 'terminal'>('about');
 
     return (
-        <div className="app-container" style={{maxWidth: '800px', margin: '0 auto', padding: '2rem'}}>
+        <div className="app-container" style={{maxWidth: '1000px', margin: '0 auto', padding: '2rem'}}>
             <header style={{ marginBottom: '2rem' }}>
                 <h1>Amil Zeynalli Portfolio</h1>
                 <p>Welcome to my interactive portfolio, powered by React, Spring Boot, and Docker.</p>
@@ -33,12 +34,19 @@ function App() {
                 >
                     Guestbook
                 </button>
+                <button
+                    className={`tab-btn ${activeTab === 'terminal' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('terminal')}
+                >
+                    Terminal
+                </button>
             </nav>
 
             <main className="tab-content">
                 {activeTab === 'about' && <About />}
                 {activeTab === 'portfolio' && <ProjectList />}
                 {activeTab === 'guestbook' && <Guestbook />}
+                {activeTab === 'terminal' && <Terminal />}
             </main>
         </div>
     )

@@ -1,0 +1,61 @@
+.terminal-container {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1.5rem;
+    border-radius: 8px;
+    height: 400px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-history {
+    margin-bottom: 1rem;
+}
+
+.terminal-entry {
+    margin-bottom: 0.5rem;
+}
+
+.terminal-command {
+    color: #fff;
+    font-weight: bold;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin-top: 0.25rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-prompt {
+    color: #00ff00;
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    flex-grow: 1;
+    min-width: 0;
+    outline: none;
+}
