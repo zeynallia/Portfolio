@@ -1,10 +1,10 @@
 .project-card {
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background-color: var(--bg);
+    box-shadow: var(--shadow);
     transition: transform 0.2s ease-in-out;
 }
 
@@ -21,11 +21,11 @@
 
 .project-card-header h3 {
     margin: 0;
-    color: #24292e;
+    color: var(--text-h);
 }
 
 .project-description {
-    color: #586069;
+    color: var(--text);
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
@@ -40,12 +40,12 @@
 
 .featured-badge {
     background-color: #ffd33d;
-    color: #24292e;
+    color: #08060d; /* Kept dark for contrast against the yellow background */
 }
 
 .tech-badge {
-    background-color: #f1f8ff;
-    color: #0366d6;
+    background-color: var(--social-bg);
+    color: var(--accent);
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -65,10 +65,10 @@
 }
 
 .btn-outline {
-    border: 1px solid #e1e4e8;
-    color: #24292e;
+    border: 1px solid var(--border);
+    color: var(--text-h);
 }
 
 .btn-outline:hover {
-    background-color: #f3f4f6;
+    background-color: var(--social-bg);
 }

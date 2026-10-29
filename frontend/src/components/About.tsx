@@ -6,13 +6,27 @@ export const About: React.FC = () => {
         <div className="about-container">
             {/* Intro Section */}
             <section className="about-intro">
-                <h2 className="section-title">Engineering Philosophy</h2>
+                <h2 className="section-title">Bio</h2>
+
                 <p>
-                    I am a Full Stack Software Engineer with a first-principles, systems-level approach to development.
-                    Whether I am modernizing legacy datacenter workflows for AWS cloud migration, designing robust
-                    RESTful APIs in Spring Boot,
-                    or engineering custom game architectures in C++, I prioritize clean object-oriented design,
-                    performance optimization, and scalable infrastructure.
+                    I'm a Software Engineer with experience building full-stack applications,
+                    cloud infrastructure, and interactive systems. Through three software
+                    engineering internships and personal projects, I've worked with technologies
+                    like Java, React, Go, and AWS to modernize legacy systems, build web applications, improve developer
+                    workflows, and build scalable software.
+                </p>
+
+                <p>
+                    I also enjoy exploring game development and
+                    systems programming. I've built custom game systems in C++ and worked with
+                    Unreal Engine, combining my interest in software architecture with creative
+                    problem-solving.
+                </p>
+
+                <p>
+                    I'm passionate about writing clean, maintainable code, solving challenging
+                    technical problems, and continuously learning new technologies to build
+                    better software.
                 </p>
             </section>
 

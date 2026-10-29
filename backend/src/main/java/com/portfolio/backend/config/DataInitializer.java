@@ -14,25 +14,25 @@ public class DataInitializer {
     @Bean
     CommandLineRunner initDatabase(ProjectRepository repository) {
         return args -> {
-            if(repository.count() == 0) {
-                Project p1 = new Project(null, "The Daily Grind",
-                        "A solo Unreal Engine 5 life-simulation game centered on the gig economy. Features a C++ data-driven architecture, custom UMG smartphone app UIs, World Partition map grids, and building-integrated parking spot mechanics.",
-                        "https://github.com/oumel7/the-daily-grind", null, true,
-                        List.of("Unreal Engine 5", "C++", "Chaos Vehicles", "UMG"));
+            repository.deleteAll();
 
-                Project p2 = new Project(null, "ECS 2D Game Engine",
-                        "A custom Entity-Component-System (ECS) 2D game engine built from scratch. Implements AABB collision resolution, config-driven entity parsing, and live debug inspection tools.",
-                        "https://github.com/zeynallia/ecs-engine", null, true,
-                        List.of("C++", "Raylib", "ImGui"));
+            Project p1 = new Project(null, "The Daily Grind",
+                    "A solo Unreal Engine 5 life-simulation game centered on the gig economy. Features a C++ data-driven architecture, custom UMG smartphone app UIs, World Partition map grids, and building-integrated parking spot mechanics.",
+                    "https://github.com/oumel7/TheDailyGrind", null, true,
+                    List.of("Unreal Engine 5", "C++", "Chaos Vehicles", "UMG"));
 
-                Project p3 = new Project(null, "Parallel Computing Algorithms",
-                        "Implementation of parallel computing algorithms for matrix-vector multiplication, prime number searching, and Mandelbrot set rendering.",
-                        "https://github.com/zeynallia/parallel-computing", null, false,
-                        List.of("C++", "OpenMP", "MPI"));
+            Project p2 = new Project(null, "Bushido",
+                    "2D action-platformer built in C++ with a custom Entity-Component-System (ECS) engine.",
+                    "https://github.com/zeynallia/Bushido", null, true,
+                    List.of("C++", "Raylib", "ImGui"));
 
-                repository.saveAll(List.of(p1, p2, p3));
-                System.out.println("Database seeded with portfolio projects.");
-            }
+            Project p3 = new Project(null, "NotMario",
+                    "A 2D side-scrolling platformer engine built from scratch in C++ using raylib. Features custom AABB collision physics, variable jump mechanics, dynamic entity management, grid-based level parsing, and animated sprite sheets.",
+                    "https://github.com/zeynallia/NotMario", null, false,
+                    List.of("C++", "Raylib", "ImGui"));
+
+            repository.saveAll(List.of(p1, p2, p3));
+            System.out.println("Database seeded with portfolio projects.");
         };
     }
 }
